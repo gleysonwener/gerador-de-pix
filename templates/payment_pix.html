@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário para Renderizar QR Code Pix</title>
+</head>
+<body>
+    <h1>Gerar QR Code Pix</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="pix_key">Chave Pix:</label>
+        <input type="text" id="pix_key" name="pix_key" required><br><br>
+        <label for="amount">Valor:</label>
+        <input type="text" id="amount" name="amount" required><br><br>
+        <label for="description">Descrição:</label>
+        <input type="text" id="description" name="description" required><br><br>
+        <button type="submit">Gerar QR Code</button>
+    </form>
+
+    {% if pix_qr_code %}
+    <h2>QR Code Gerado:</h2>
+    <img src="data:image/png;base64,{{ pix_qr_code }}" alt="QR Code Pix" width="200px" height="200px">
+    {% endif %}
+</body>
+</html>

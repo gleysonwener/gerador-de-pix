@@ -1,0 +1,6 @@
+<h5>Formulario de pagamento</h5>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">enviar</button>
+</form>
